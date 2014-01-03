@@ -33,3 +33,9 @@ and run with:
 ```bash
 gingerbread --help
 ```
+
+## Thanks
+
+Thank you for [Ginger Proofreader](http://www.gingersoftware.com/) for such awesome service. Hope they will keep it free :)
+
+Thanks to @subosito for this inspriration [https://github.com/subosito/gingerice](https://github.com/subosito/gingerice) (Ruby Gem)
