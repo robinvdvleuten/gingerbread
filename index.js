@@ -25,8 +25,13 @@ module.exports = function (text, options, callback) {
       return callback(new Error('Couldn\'t connect to API endpoint (' + options.apiEndpoint + ')'));
     }
 
-    var data = JSON.parse(body),
-        suggestion,
+    try {
+      var data = JSON.parse(body);
+    } catch (error) {
+      return callback(new Error('Received an invalid JSON format'));
+    }
+
+    var suggestion,
         definition,
         result = '',
         corrections = [],

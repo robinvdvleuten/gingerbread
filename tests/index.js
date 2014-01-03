@@ -24,4 +24,12 @@ describe('gingerbread', function () {
       done();
     });
   });
+
+  it('should return an error when json errors', function (done) {
+    gingerbread('Hllo', {apiEndpoint: 'http://subosito.com/'}, function (error, text, result, corrections) {
+      assert.notEqual(null, error);
+      assert.equal('Received an invalid JSON format', error.message);
+      done();
+    });
+  });
 })
