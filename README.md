@@ -18,5 +18,18 @@ var gingerbread = require('gingerbread');
 gingerbread('The smelt of fliwers bring back memories.', function (error, text, result, corrections) {
   // result contains 'The smell of flowers brings back memories.'
 });
+```
 
+## Command Line Interface
+
+Install the cli through NPM with:
+
+```bash
+npm install gingerbread -g
+```
+
+and run with:
+
+```bash
+gingerbread --help
 ```

@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+process.title = 'gingerbread';
+
+var gingerbread = require('../'),
+    program = require('commander');
+
+program
+  .version(require('../package.json').version)
+  .usage('<text ...>')
+  .parse(process.argv);
+
+var texts = program.args;
+
+if (texts.length) {
+  texts.forEach(parseText);
+}
+
+function parseText(text) {
+  gingerbread(text, function (error, text, result, corrections) {
+    process.stdout.write(result + '\n');
+  });
+}

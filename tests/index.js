@@ -1,5 +1,5 @@
 var assert = require('assert'),
-    gingerbread = require('../index');
+    gingerbread = require('../');
 
 describe('gingerbread', function () {
   it('should return parsed results', function (done) {
