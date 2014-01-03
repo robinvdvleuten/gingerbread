@@ -1,13 +1,24 @@
 var request = require('request'),
     url = require('url'),
-    apiEndpoint = 'http://services.gingersoftware.com/Ginger/correct/json/GingerTheText',
-    apiVersion = '2.0',
-    apiKey = '6ae0c3a0-afdc-4532-a810-82ded0054236',
-    defaultLang = 'US';
+    _ = require('underscore');
 
-module.exports = function (text, callback) {
-  var uri = url.parse(apiEndpoint);
-  uri.query = {text: text, lang: defaultLang, apiKey: apiKey, clientVersion: apiVersion};
+var defaults = {
+  apiEndpoint: 'http://services.gingersoftware.com/Ginger/correct/json/GingerTheText',
+  apiKey: '6ae0c3a0-afdc-4532-a810-82ded0054236',
+  apiVersion: '2.0',
+  lang: 'US',
+};
+
+module.exports = function (text, options, callback) {
+  if (callback == undefined && typeof options == 'function') {
+    callback = options;
+    options = {};
+  }
+
+  options = _.defaults(options, defaults);
+
+  var uri = url.parse(options.apiEndpoint);
+  uri.query = {text: text, lang: options.lang, apiKey: options.apiKey, clientVersion: options.apiVersion};
 
   request({uri: url.format(uri)}, function (error, response, body) {
     var data = JSON.parse(body),

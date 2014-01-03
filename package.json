@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "request": "~2.30.0",
-    "commander": "~2.1.0"
+    "commander": "~2.1.0",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {
     "mocha": "~1.16.2"
