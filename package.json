@@ -1,7 +1,7 @@
 {
   "name": "gingerbread",
-  "version": "0.0.1",
-  "description": "A wrapper arround Ginger proofreader",
+  "version": "0.1.0",
+  "description": "A wrapper around Ginger proofreader for correcting spelling and grammar mistakes based on the context of complete sentences.",
   "keywords": [
     "grammar",
     "ginger",
@@ -24,11 +24,15 @@
   "bugs": {
     "url": "https://github.com/RobinVdVleuten/gingerbread/issues"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "request": "~2.30.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.16.2"
+  },
   "main": "index.js",
   "scripts": {
     "prepublish": "npm prune",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/index.js"
   }
 }
