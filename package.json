@@ -1,7 +1,7 @@
 {
   "name": "gingerbread",
   "version": "0.1.0",
-  "description": "A wrapper around Ginger proofreader for correcting spelling and grammar mistakes based on the context of complete sentences.",
+  "description": "A wrapper around Ginger proofreader.",
   "keywords": [
     "grammar",
     "ginger",
