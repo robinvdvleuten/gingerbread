@@ -2,6 +2,8 @@
 
 A wrapper around Ginger proofreader for correcting spelling and grammar mistakes based on the context of complete sentences.
 
+[![Build Status](https://travis-ci.org/RobinvdVleuten/gingerbread.png?branch=master)](https://travis-ci.org/RobinvdVleuten/gingerbread)
+
 ## Installation
 
 ```bash
