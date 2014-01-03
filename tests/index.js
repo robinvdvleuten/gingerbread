@@ -1,4 +1,5 @@
 var assert = require('assert'),
+    exec = require('child_process').exec,
     gingerbread = require('../');
 
 describe('gingerbread', function () {
@@ -12,7 +13,13 @@ describe('gingerbread', function () {
       assert.equal(3, corrections.length);
       assert.equal(4, corrections[0].start);
       assert.equal(5, corrections[0].length);
+      done();
+    });
+  });
 
+  it('should return output when executing simple command', function (done) {
+    exec('bin/gingerbread "Edwards will be sck yesterday"', function (error, stdout, stderr) {
+      assert.equal("Edwards was sick yesterday\n", stdout);
       done();
     });
   });
@@ -20,7 +27,7 @@ describe('gingerbread', function () {
   it('should return an error when request errors', function (done) {
     gingerbread('Hllo', {apiEndpoint: 'http://example.id/'}, function (error, text, result, corrections) {
       assert.notEqual(null, error);
-      assert.equal('Couldn\'t connect to API endpoint (http://example.id/)', error.message);
+      assert.equal("Couldn't connect to API endpoint (http://example.id/)", error.message);
       done();
     });
   });
