@@ -21,6 +21,10 @@ module.exports = function (text, options, callback) {
   uri.query = {text: text, lang: options.lang, apiKey: options.apiKey, clientVersion: options.apiVersion};
 
   request({uri: url.format(uri)}, function (error, response, body) {
+    if (error) {
+      return callback(new Error('Couldn\'t connect to API endpoint (' + options.apiEndpoint + ')'));
+    }
+
     var data = JSON.parse(body),
         suggestion,
         definition,
