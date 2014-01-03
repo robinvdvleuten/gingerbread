@@ -1,0 +1,34 @@
+{
+  "name": "gingerbread",
+  "version": "0.0.1",
+  "description": "A wrapper arround Ginger proofreader",
+  "keywords": [
+    "grammar",
+    "ginger",
+    "wrapper",
+    "spellchecker"
+  ],
+  "author": "Robin van der Vleuten <robinvdvleuten@gmail.com>",
+  "contributors": [
+    {
+      "name": "Robin van der Vleuten",
+      "email": "robinvdvleuten@gmail.com",
+      "web": "http://robinvdvleuten.nl"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RobinvdVleuten/gingerbread.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RobinVdVleuten/gingerbread/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "npm prune",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
