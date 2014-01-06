@@ -51,7 +51,7 @@ module.exports = function (text, options, callback) {
         definition = definition === undefined ? null : definition;
 
         corrections.push({
-          text: text.substr(suggestion.from, (suggestion.to + 1) - suggestion.from),
+          text: text.substr(suggestion.From, suggestion.To - suggestion.From + 1),
           correct: suggestion.Suggestions[0].Text,
           definition: definition,
           start: suggestion.From,
