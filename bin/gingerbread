@@ -7,7 +7,12 @@ var gingerbread = require('../'),
 
 program
   .version(require('../package.json').version)
-  .usage('<text ...>')
+  .option('--api-endpoint [api_endpoint]', 'Set API endpoint')
+  .option('--api-version [api_version]', 'Set API version')
+  .option('--api-key [api_key]', 'Set API key')
+  .option('-l', '--lang [lang]', 'Set language, currently support \'US\' only')
+  .option('-v', '--verbose', 'Verbose output')
+  .usage('[options] <text ...>')
   .parse(process.argv);
 
 var texts = program.args;
@@ -17,7 +22,14 @@ if (texts.length) {
 }
 
 function parseText(text) {
-  gingerbread(text, function (error, text, result, corrections) {
+  var options = {
+    apiEndpoint: program.apiEndpoint,
+    apiKey: program.apiKey,
+    apiVersion: program.apiVersion,
+    lang: program.lang,
+  };
+
+  gingerbread(text, options, function (error, text, result, corrections) {
     process.stdout.write(result + '\n');
   });
 }
