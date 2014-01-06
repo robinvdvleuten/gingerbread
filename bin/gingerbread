@@ -30,6 +30,10 @@ function parseText(text) {
   };
 
   gingerbread(text, options, function (error, text, result, corrections) {
+    if (error) {
+      throw error;
+    }
+
     process.stdout.write(result + '\n');
   });
 }
