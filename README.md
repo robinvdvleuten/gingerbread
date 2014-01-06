@@ -2,6 +2,7 @@
 
 A wrapper around Ginger proofreader for correcting spelling and grammar mistakes based on the context of complete sentences.
 
+[![NPM version](https://badge.fury.io/js/gingerbread.png)](http://badge.fury.io/js/gingerbread)
 [![Build Status](https://travis-ci.org/RobinvdVleuten/gingerbread.png?branch=master)](https://travis-ci.org/RobinvdVleuten/gingerbread)
 
 ## Installation
