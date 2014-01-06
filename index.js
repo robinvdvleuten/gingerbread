@@ -10,7 +10,7 @@ var defaults = {
 };
 
 module.exports = function (text, options, callback) {
-  if (callback == undefined && typeof options == 'function') {
+  if (callback === undefined && typeof options === 'function') {
     callback = options;
     options = {};
   }
@@ -41,7 +41,7 @@ module.exports = function (text, options, callback) {
       suggestion = data.LightGingerTheTextResult[index];
 
       if (i <= suggestion.From) {
-        if (suggestion.From != 0) {
+        if (suggestion.From !== 0) {
           result += text.substr(i, suggestion.From - i);
         }
 
@@ -66,6 +66,6 @@ module.exports = function (text, options, callback) {
       result += text.substring(i);
     }
 
-    callback(null, text, result, corrections)
+    callback(null, text, result, corrections);
   });
 }

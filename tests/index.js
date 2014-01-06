@@ -50,4 +50,4 @@ describe('gingerbread', function () {
       done();
     });
   });
-})
+});
