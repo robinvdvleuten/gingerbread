@@ -17,9 +17,20 @@ describe('gingerbread', function () {
     });
   });
 
-  it('should return output when executing simple command', function (done) {
+  it('should return simple output when executing command', function (done) {
     exec('bin/gingerbread "Edwards will be sck yesterday"', function (error, stdout, stderr) {
       assert.equal("Edwards was sick yesterday\n", stdout);
+      done();
+    });
+  });
+
+  it('should return verbose output when executing command', function (done) {
+    exec('bin/gingerbread -v "Edwards will be sck yesterday"', function (error, stdout, stderr) {
+      var object = JSON.parse(stdout);
+
+      assert.equal("Edwards will be sck yesterday", object.text);
+      assert.equal("Edwards was sick yesterday\n", object.result);
+      assert.equal(2, object.corrections.length);
       done();
     });
   });

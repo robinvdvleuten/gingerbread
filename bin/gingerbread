@@ -10,8 +10,8 @@ program
   .option('--api-endpoint [api_endpoint]', 'Set API endpoint')
   .option('--api-version [api_version]', 'Set API version')
   .option('--api-key [api_key]', 'Set API key')
-  .option('-l', '--lang [lang]', 'Set language, currently support \'US\' only')
-  .option('-v', '--verbose', 'Verbose output')
+  .option('-l, --lang [lang]', 'Set language, currently support \'US\' only')
+  .option('-v, --verbose', 'Verbose output')
   .usage('[options] <text ...>')
   .parse(process.argv);
 
@@ -34,6 +34,15 @@ function parseText(text) {
       throw error;
     }
 
-    process.stdout.write(result + '\n');
+    var response = result + '\n';
+    if (program.verbose) {
+      response = JSON.stringify({
+        text: text,
+        result: response,
+        corrections: corrections,
+      }, null, 2) + '\n';
+    }
+
+    process.stdout.write(response);
   });
 }
