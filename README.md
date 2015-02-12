@@ -2,9 +2,9 @@
 
 A wrapper around Ginger proofreader for correcting spelling and grammar mistakes based on the context of complete sentences.
 
-[![NPM version](https://badge.fury.io/js/gingerbread.png)](http://badge.fury.io/js/gingerbread)
-[![Build Status](https://travis-ci.org/RobinvdVleuten/gingerbread.png?branch=master)](https://travis-ci.org/RobinvdVleuten/gingerbread)
-[![Code Climate](https://codeclimate.com/github/RobinvdVleuten/gingerbread.png)](https://codeclimate.com/github/RobinvdVleuten/gingerbread)
+[![NPM version](https://img.shields.io/npm/v/gingerbread.svg?style=flat-square)](https://www.npmjs.com/package/gingerbread)
+[![Build Status](https://img.shields.io/travis/RobinvdVleuten/gingerbread.svg?style=flat-square)](https://travis-ci.org/RobinvdVleuten/gingerbread)
+[![Code Climate](https://img.shields.io/codeclimate/github/RobinvdVleuten/gingerbread.svg?style=flat-square)](https://codeclimate.com/github/RobinvdVleuten/gingerbread)
 
 ## Installation
 
