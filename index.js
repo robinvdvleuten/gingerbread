@@ -44,8 +44,12 @@ module.exports = function (text, options, callback) {
         if (suggestion.From !== 0) {
           result += text.substr(i, suggestion.From - i);
         }
-
-        result += suggestion.Suggestions[0].Text;
+        //FIX/HACK: Text is undefined. Issue, suggestion does not always have Suggestions 
+        var CurrentSug = suggestion.Suggestions[0] || {
+                Text: "",
+                Definition: ""
+            };
+        result += CurrentSug.Text;
 
         definition = suggestion.Suggestions[0].Definition;
         definition = definition === undefined ? null : definition;
