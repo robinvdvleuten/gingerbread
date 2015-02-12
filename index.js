@@ -32,12 +32,14 @@ module.exports = function (text, options, callback) {
     }
 
     var suggestion,
+        currentSuggestion,
         definition,
+        index,
         result = '',
         corrections = [],
         i = 0;
 
-    for (var index in data.LightGingerTheTextResult) {
+    for (index in data.LightGingerTheTextResult) {
       suggestion = data.LightGingerTheTextResult[index];
 
       if (i <= suggestion.From) {
@@ -45,14 +47,15 @@ module.exports = function (text, options, callback) {
           result += text.substr(i, suggestion.From - i);
         }
 
-        result += suggestion.Suggestions[0].Text;
+        currentSuggestion = suggestion.Suggestions[0] || { Text: '', Definition: '' };
+        result += currentSuggestion.Text;
 
-        definition = suggestion.Suggestions[0].Definition;
+        definition = currentSuggestion.Definition;
         definition = definition === undefined ? null : definition;
 
         corrections.push({
           text: text.substr(suggestion.From, suggestion.To - suggestion.From + 1),
-          correct: suggestion.Suggestions[0].Text,
+          correct: currentSuggestion.Text,
           definition: definition,
           start: suggestion.From,
           length: suggestion.To - suggestion.From + 1,
@@ -68,4 +71,4 @@ module.exports = function (text, options, callback) {
 
     callback(null, text, result, corrections);
   });
-}
+};

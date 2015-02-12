@@ -33,13 +33,16 @@
     "underscore": "~1.5.2"
   },
   "devDependencies": {
-    "mocha": "~1.16.2"
+    "istanbul": "^0.3.5",
+    "mocha": "~1.16.2",
+    "nock": "^0.59.1"
   },
   "main": "./index.js",
   "bin": "./bin/gingerbread",
   "preferGlobal": true,
   "scripts": {
     "prepublish": "npm prune",
-    "test": "mocha tests/index.js"
+    "test": "NODE_ENV=test mocha --reporter=dot --check-leaks tests",
+    "test-cov": "NODE_ENV=test node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot --check-leaks tests"
   }
 }
