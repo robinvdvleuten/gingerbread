@@ -52,12 +52,12 @@ module.exports = function (text, options, callback) {
             };
         result += CurrentSug.Text;
 
-        definition = suggestion.Suggestions[0].Definition;
+        definition =CurrentSug.Definition;
         definition = definition === undefined ? null : definition;
 
         corrections.push({
           text: text.substr(suggestion.From, suggestion.To - suggestion.From + 1),
-          correct: suggestion.Suggestions[0].Text,
+          correct: CurrentSug.Text,
           definition: definition,
           start: suggestion.From,
           length: suggestion.To - suggestion.From + 1,
