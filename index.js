@@ -44,15 +44,20 @@ module.exports = function (text, options, callback) {
         if (suggestion.From !== 0) {
           result += text.substr(i, suggestion.From - i);
         }
+        
+        //FIX/HACK: Text is undefined. Issue, suggestion does not always have Suggestions 
+        var CurrentSug = suggestion.Suggestions[0] || {
+                Text: "",
+                Definition: ""
+            };
+        result += CurrentSug.Text;
 
-        result += suggestion.Suggestions[0].Text;
-
-        definition = suggestion.Suggestions[0].Definition;
+        definition =CurrentSug.Definition;
         definition = definition === undefined ? null : definition;
 
         corrections.push({
           text: text.substr(suggestion.From, suggestion.To - suggestion.From + 1),
-          correct: suggestion.Suggestions[0].Text,
+          correct: CurrentSug.Text,
           definition: definition,
           start: suggestion.From,
           length: suggestion.To - suggestion.From + 1,
@@ -68,4 +73,4 @@ module.exports = function (text, options, callback) {
 
     callback(null, text, result, corrections);
   });
-}
+};
