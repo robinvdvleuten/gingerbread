@@ -73,4 +73,4 @@ module.exports = function (text, options, callback) {
 
     callback(null, text, result, corrections);
   });
-}
+};
