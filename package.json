@@ -28,9 +28,9 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "request": "^2.30",
     "commander": "^2.1",
-    "underscore": "^1.5"
+    "lodash.defaults": "^3.1.2",
+    "request": "^2.30"
   },
   "devDependencies": {
     "istanbul": "^0.4",

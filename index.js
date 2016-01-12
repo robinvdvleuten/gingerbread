@@ -1,6 +1,6 @@
-var request = require('request'),
-    url = require('url'),
-    _ = require('underscore');
+var Defaults = require('lodash.defaults'),
+    Request = require('request'),
+    Url = require('url');
 
 var defaults = {
   apiEndpoint: 'http://services.gingersoftware.com/Ginger/correct/json/GingerTheText',
@@ -15,12 +15,12 @@ module.exports = function (text, options, callback) {
     options = {};
   }
 
-  options = _.defaults(options, defaults);
+  options = Defaults(options, defaults);
 
-  var uri = url.parse(options.apiEndpoint);
+  var uri = Url.parse(options.apiEndpoint);
   uri.query = {text: text, lang: options.lang, apiKey: options.apiKey, clientVersion: options.apiVersion};
 
-  request({uri: url.format(uri)}, function (error, response, body) {
+  Request({uri: Url.format(uri)}, function (error, response, body) {
     if (error) {
       return callback(new Error('Couldn\'t connect to API endpoint (' + options.apiEndpoint + ')'));
     }

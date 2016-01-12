@@ -2,10 +2,10 @@
 
 process.title = 'gingerbread';
 
-var gingerbread = require('../'),
-    program = require('commander');
+var Gingerbread = require('../'),
+    Program = require('commander');
 
-program
+Program
   .version(require('../package.json').version)
   .option('--api-endpoint [api_endpoint]', 'Set API endpoint')
   .option('--api-version [api_version]', 'Set API version')
@@ -15,7 +15,7 @@ program
   .usage('[options] <text ...>')
   .parse(process.argv);
 
-var texts = program.args;
+var texts = Program.args;
 
 if (texts.length) {
   texts.forEach(parseText);
@@ -23,19 +23,19 @@ if (texts.length) {
 
 function parseText(text) {
   var options = {
-    apiEndpoint: program.apiEndpoint,
-    apiKey: program.apiKey,
-    apiVersion: program.apiVersion,
-    lang: program.lang,
+    apiEndpoint: Program.apiEndpoint,
+    apiKey: Program.apiKey,
+    apiVersion: Program.apiVersion,
+    lang: Program.lang,
   };
 
-  gingerbread(text, options, function (error, text, result, corrections) {
+  Gingerbread(text, options, function (error, text, result, corrections) {
     if (error) {
       throw error;
     }
 
     var response = result + '\n';
-    if (program.verbose) {
+    if (Program.verbose) {
       response = JSON.stringify({
         text: text,
         result: response,
