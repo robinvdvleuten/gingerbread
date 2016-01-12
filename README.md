@@ -4,7 +4,7 @@ A wrapper around Ginger proofreader for correcting spelling and grammar mistakes
 
 [![NPM version](https://img.shields.io/npm/v/gingerbread.svg?style=flat-square)](https://www.npmjs.com/package/gingerbread)
 [![Build Status](https://img.shields.io/travis/robinvdvleuten/gingerbread.svg?style=flat-square)](https://travis-ci.org/robinvdvleuten/gingerbread)
-[![Code Climate](https://img.shields.io/codeclimate/github/robinvdvleuten/gingerbread.svg?style=flat-square)](https://codeclimate.com/github/robinvdvleuten/gingerbread)
+[![Code Climate](https://img.shields.io/codeclimate/github/RobinvdVleuten/gingerbread.svg?style=flat-square)](https://codeclimate.com/github/RobinvdVleuten/gingerbread)
 
 ## Installation
 
