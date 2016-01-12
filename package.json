@@ -13,7 +13,7 @@
     {
       "name": "Robin van der Vleuten",
       "email": "robinvdvleuten@gmail.com",
-      "web": "http://robinvdvleuten.nl"
+      "web": "https://www.robinvdvleuten.nl"
     }
   ],
   "license": "MIT",
@@ -28,14 +28,14 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "request": "~2.30.0",
-    "commander": "~2.1.0",
-    "underscore": "~1.5.2"
+    "request": "^2.30",
+    "commander": "^2.1",
+    "underscore": "^1.5"
   },
   "devDependencies": {
-    "istanbul": "^0.3.5",
-    "mocha": "~1.16.2",
-    "nock": "^0.59.1"
+    "istanbul": "^0.4",
+    "mocha": "^2.3",
+    "nock": "^5.3"
   },
   "main": "./index.js",
   "bin": "./bin/gingerbread",
