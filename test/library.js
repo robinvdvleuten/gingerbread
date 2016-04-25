@@ -1,7 +1,7 @@
-var assert = require('assert'),
-    nock = require('nock'),
-    exec = require('child_process').exec,
-    gingerbread = require('../');
+var exec = require('child_process').exec,
+    expect = require('chai').expect,
+    gingerbread = require('../'),
+    nock = require('nock');
 
 describe('gingerbread library', function () {
   it('should return parsed results when receiving suggestions', function (done) {
@@ -34,16 +34,16 @@ describe('gingerbread library', function () {
     var originalText = 'The smelt of fliwers bring back memories.';
 
     gingerbread(originalText, function (error, text, result, corrections) {
-      assert.equal(null, error);
-      assert.equal(originalText, text);
-      assert.equal('The smell of flowers brings back memories.', result);
-      assert.equal(3, corrections.length);
-      assert.equal(4, corrections[0].start);
-      assert.equal(5, corrections[0].length);
-      assert.equal(13, corrections[1].start);
-      assert.equal(7, corrections[1].length);
-      assert.equal(21, corrections[2].start);
-      assert.equal(5, corrections[2].length);
+      expect(error).to.be.null;
+      expect(text).to.equal(originalText);
+      expect(result).to.equal('The smell of flowers brings back memories.');
+      expect(corrections).to.have.lengthOf(3);
+      expect(corrections[0].start).to.equal(4);
+      expect(corrections[0].length).to.equal(5);
+      expect(corrections[1].start).to.equal(13);
+      expect(corrections[1].length).to.equal(7);
+      expect(corrections[2].start).to.equal(21);
+      expect(corrections[2].length).to.equal(5);
       done();
     });
   });
@@ -62,12 +62,12 @@ describe('gingerbread library', function () {
     var originalText = 'The smelt of fliwers bring back memories.';
 
     gingerbread(originalText, function (error, text, result, corrections) {
-      assert.equal(null, error);
-      assert.equal(originalText, text);
-      assert.equal('The smelt of fliwers  back memories.', result);
-      assert.equal(1, corrections.length);
-      assert.equal(21, corrections[0].start);
-      assert.equal(5, corrections[0].length);
+      expect(error).to.be.null;
+      expect(text).to.equal(originalText);
+      expect(result).to.equal('The smelt of fliwers  back memories.');
+      expect(corrections).to.have.lengthOf(1);
+      expect(corrections[0].start).to.equal(21);
+      expect(corrections[0].length).to.equal(5);
       done();
     });
   });

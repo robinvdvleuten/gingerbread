@@ -1,12 +1,11 @@
-var assert = require('assert'),
-    nock = require('nock'),
-    exec = require('child_process').exec,
+var exec = require('child_process').exec,
+    expect = require('chai').expect,
     gingerbread = require('../');
 
 describe('gingerbread command-line interface', function () {
   it('should return simple output when executing command', function (done) {
     exec('bin/gingerbread "Edwards will be sck yesterday"', function (error, stdout, stderr) {
-      assert.equal("Edwards was sick yesterday\n", stdout);
+      expect(stdout).to.equal("Edwards was sick yesterday\n");
       done();
     });
   });
@@ -15,25 +14,25 @@ describe('gingerbread command-line interface', function () {
     exec('bin/gingerbread -v "Edwards will be sck yesterday"', function (error, stdout, stderr) {
       var object = JSON.parse(stdout);
 
-      assert.equal("Edwards will be sck yesterday", object.text);
-      assert.equal("Edwards was sick yesterday\n", object.result);
-      assert.equal(2, object.corrections.length);
+      expect(object.text).to.equal("Edwards will be sck yesterday");
+      expect(object.result).to.equal("Edwards will be sck yesterday\n");
+      expect(object.corrections).to.have.lengthOf(2);
       done();
     });
   });
 
   it('should return an error when request errors', function (done) {
     gingerbread('Hllo', {apiEndpoint: 'http://example.id/'}, function (error, text, result, corrections) {
-      assert.notEqual(null, error);
-      assert.equal("Couldn't connect to API endpoint (http://example.id/)", error.message);
+      expect(error).not.to.be.null;
+      expect(error.message).to.equal("Couldn't connect to API endpoint (http://example.id/)");
       done();
     });
   });
 
   it('should return an error when json errors', function (done) {
     gingerbread('Hllo', {apiEndpoint: 'http://subosito.com/'}, function (error, text, result, corrections) {
-      assert.notEqual(null, error);
-      assert.equal('Received an invalid JSON format', error.message);
+      expect(error).not.to.be.null;
+      expect(error.message).to.match(/^Received an invalid JSON format:/);
       done();
     });
   });

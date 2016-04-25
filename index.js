@@ -2,20 +2,18 @@ var ObjectAssign = require('object-assign'),
     Request = require('request'),
     Url = require('url');
 
-var defaults = {
-  apiEndpoint: 'http://services.gingersoftware.com/Ginger/correct/json/GingerTheText',
-  apiKey: '6ae0c3a0-afdc-4532-a810-82ded0054236',
-  apiVersion: '2.0',
-  lang: 'US',
-};
-
 module.exports = function (text, options, callback) {
   if (callback === undefined && typeof options === 'function') {
     callback = options;
     options = {};
   }
 
-  options = ObjectAssign(defaults, options);
+  options = ObjectAssign({
+    apiEndpoint: 'http://services.gingersoftware.com/Ginger/correct/json/GingerTheText',
+    apiKey: '6ae0c3a0-afdc-4532-a810-82ded0054236',
+    apiVersion: '2.0',
+    lang: 'US',
+  }, options);
 
   var uri = Url.parse(options.apiEndpoint);
   uri.query = {text: text, lang: options.lang, apiKey: options.apiKey, clientVersion: options.apiVersion};
@@ -28,7 +26,7 @@ module.exports = function (text, options, callback) {
     try {
       var data = JSON.parse(body);
     } catch (error) {
-      return callback(new Error('Received an invalid JSON format'));
+      return callback(new Error('Received an invalid JSON format: ' + body));
     }
 
     var suggestion,
