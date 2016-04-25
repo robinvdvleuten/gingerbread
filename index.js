@@ -1,4 +1,4 @@
-var Defaults = require('lodash.defaults'),
+var ObjectAssign = require('object-assign'),
     Request = require('request'),
     Url = require('url');
 
@@ -15,7 +15,7 @@ module.exports = function (text, options, callback) {
     options = {};
   }
 
-  options = Defaults(options, defaults);
+  options = ObjectAssign(defaults, options);
 
   var uri = Url.parse(options.apiEndpoint);
   uri.query = {text: text, lang: options.lang, apiKey: options.apiKey, clientVersion: options.apiVersion};
