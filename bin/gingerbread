@@ -22,12 +22,23 @@ if (texts.length) {
 }
 
 function parseText(text) {
-  var options = {
-    apiEndpoint: Program.apiEndpoint,
-    apiKey: Program.apiKey,
-    apiVersion: Program.apiVersion,
-    lang: Program.lang,
-  };
+  var options = {};
+
+  if (Program.apiEndpoint) {
+    options.apiEndpoint = Program.apiEndpoint;
+  }
+
+  if (Program.apiKey) {
+    options.apiKey = Program.apiKey;
+  }
+
+  if (Program.apiVersion) {
+    options.apiVersion = Program.apiVersion;
+  }
+
+  if (Program.lang) {
+    options.lang = Program.lang;
+  }
 
   Gingerbread(text, options, function (error, text, result, corrections) {
     if (error) {
