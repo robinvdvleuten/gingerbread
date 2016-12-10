@@ -8,21 +8,21 @@
     "wrapper",
     "spellchecker"
   ],
-  "author": "Robin van der Vleuten <robinvdvleuten@gmail.com>",
+  "author": "Robin van der Vleuten <robin@webstronauts.co>",
   "contributors": [
     {
       "name": "Robin van der Vleuten",
-      "email": "robinvdvleuten@gmail.com",
+      "email": "robin@webstronauts.co",
       "web": "https://www.robinvdvleuten.nl"
     }
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RobinvdVleuten/gingerbread.git"
+    "url": "https://github.com/robinvdvleuten/gingerbread.git"
   },
   "bugs": {
-    "url": "https://github.com/RobinVdVleuten/gingerbread/issues"
+    "url": "https://github.com/robinvdvleuten/gingerbread/issues"
   },
   "engines": {
     "node": ">= 0.10.0"
