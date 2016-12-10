@@ -1,6 +1,6 @@
 var exec = require('child_process').exec,
     expect = require('chai').expect,
-    gingerbread = require('../'),
+    gingerbread = require('../lib'),
     nock = require('nock');
 
 describe('gingerbread library', function () {

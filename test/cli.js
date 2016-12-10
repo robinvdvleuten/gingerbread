@@ -1,6 +1,6 @@
 var exec = require('child_process').exec,
     expect = require('chai').expect,
-    gingerbread = require('../');
+    gingerbread = require('../lib');
 
 describe('gingerbread command-line interface', function () {
   it('should return simple output when executing command', function (done) {

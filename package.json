@@ -38,7 +38,7 @@
     "mocha": "^2.4",
     "nock": "^8.0"
   },
-  "main": "./index.js",
+  "main": "./lib/index.js",
   "bin": "./bin/gingerbread",
   "preferGlobal": true,
   "scripts": {

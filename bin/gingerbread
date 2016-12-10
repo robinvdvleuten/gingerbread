@@ -2,7 +2,7 @@
 
 process.title = 'gingerbread';
 
-var Gingerbread = require('../'),
+var Gingerbread = require('../lib'),
     Program = require('commander');
 
 Program
