@@ -28,9 +28,9 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "commander": "^2.1",
-    "object-assign": "^4.0.1",
-    "request": "^2.72"
+    "commander": "^4.0.1",
+    "object-assign": "^4.1.1",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "ava": "^2.4.0",
