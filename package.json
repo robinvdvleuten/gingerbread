@@ -24,6 +24,10 @@
   "bugs": {
     "url": "https://github.com/robinvdvleuten/gingerbread/issues"
   },
+  "files": [
+    "bin",
+    "lib"
+  ],
   "engines": {
     "node": ">= 8.0.0"
   },
@@ -40,7 +44,6 @@
   "bin": "./bin/gingerbread",
   "preferGlobal": true,
   "scripts": {
-    "prepublish": "npm prune",
     "test": "ava"
   }
 }
