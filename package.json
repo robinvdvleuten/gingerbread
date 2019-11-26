@@ -25,7 +25,7 @@
     "url": "https://github.com/robinvdvleuten/gingerbread/issues"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 8.0.0"
   },
   "dependencies": {
     "commander": "^4.0.1",
